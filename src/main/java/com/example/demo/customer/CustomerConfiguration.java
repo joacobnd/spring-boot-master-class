@@ -1,5 +1,6 @@
 package com.example.demo.customer;
 
+import com.example.demo.infoapp.InfoApp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -20,11 +21,12 @@ public class CustomerConfiguration {
 
 
     @Bean
-    CommandLineRunner commandLineRunner() {
+    CommandLineRunner commandLineRunner(InfoApp infoApp) {
         return args ->{
             System.out.println("Command line runner hooray!");
             System.out.println(companyName);
             System.out.println(environment.getProperty("info.app.name"));
+            System.out.println(infoApp);
         } ;
     }
 
